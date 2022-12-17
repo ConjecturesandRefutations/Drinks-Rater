@@ -30,7 +30,7 @@ router.post("/alcohol/create", (req, res, next) => {
   Alcohol.create({ name, description, rating, percentage, cost })
     .then((newAlcohol) => {
       console.log("Post Created");
-      return User.findByIdAndUpdate(req.session.currentUser, { $push: { alcohol: newAlcohol._id } });
+      return User.findByIdAndUpdate(req.session.currentUser, { $push: { drinks: newAlcohol._id } });
     })
     .then(() => res.redirect("/alcohol"))
     .catch((error) => next(error));
@@ -67,7 +67,7 @@ router.post("/alcohol/:alcoholId/delete", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-// GET route to retrieve and display all the alcohol
+/* // GET route to retrieve and display all the alcohol
 router.get("/alcohol", isLoggedIn, (req, res, next) => {
   Alcohol.find()
     .then((allTheAlcoholFromDB) => {
@@ -82,6 +82,19 @@ router.get("/alcohol", isLoggedIn, (req, res, next) => {
 
       // Call the error-middleware to display the error page to the user
       next(error);
+    });
+}); */
+
+router.get('/alcohol', isLoggedIn, (req, res, next) => {
+  User.findById(req.session.currentUser)
+    .populate('drinks') // 
+    .then(dbDrinks => {
+      console.log("Drinks from the DB: ", dbDrinks.drinks);
+      res.render('alcohol/alcohol-list', { drinks: dbDrinks.drinks });
+    })
+    .catch(err => {
+      console.log(`Err while getting the posts from the DB: ${err}`);
+      next(err);
     });
 });
 

@@ -2,13 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
+    drinks: [{ type: Schema.Types.ObjectId, ref: "Alcohol" }],
     username: {
       type: String,
       trim: true,
       required: [true, "Username is required."],
       unique: true
     },
-    drinks: [{ type: Schema.Types.ObjectId, ref: "Alcohol" }],
     email: {
       type: String,
       required: [true, "Email is required."],
