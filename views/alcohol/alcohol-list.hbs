@@ -1,0 +1,22 @@
+<h1>Drinks</h1>
+
+<li class="to-right">
+               <a href="/user-profile">Back to Profile</a> <span> | </span>
+               <form id="logout-form" action="/logout" method="POST">
+                  <button>Logout</button> <span> | </span>
+               </form>
+            </li>
+
+{{#each alcohol}}
+  <div>
+    <h3>{{name}}</h3>
+    <p>{{rating}}/10</p> 
+    <a href="/alcohol/{{_id}}">See details</a> 
+    <a href="/alcohol/{{_id}}/edit" id="detail-edit-gap">Edit</a> 
+
+    {{!-- add the form to handle the POST request to remove a specific drink  --}}
+    <form action="/alcohol/{{_id}}/delete" method="POST">
+      <button id="delete">Delete</button>
+    </form>
+  </div>
+{{/each}}

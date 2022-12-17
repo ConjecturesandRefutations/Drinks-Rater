@@ -1,0 +1,20 @@
+{{#if userInSession}}
+  <h2>Welcome, {{ userInSession.username }}!</h2>
+
+            <li class="to-right">
+               
+               <form id="logout-form" action="/logout" method="POST">
+                  <button>Logout</button> <span> | </span>
+               </form>
+
+            </li>
+  
+     <nav>
+         <ul>
+            <li><a href="/alcohol/create">Add Drink</a></li>
+            <li><a href="/alcohol">Drinks List</a></li>
+         </ul>
+      </nav>
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}
