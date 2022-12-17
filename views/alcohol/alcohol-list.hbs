@@ -10,18 +10,17 @@
             <button id="another"><a href="/alcohol/create" id="another-button">Add Another</a> </button>
 
 {{#each drinks}}
-  <div>
     <h3 id='drinks'>{{name}}</h3>
     <p>{{rating}}/10</p> 
-   
+   <div id="drinks-list">
     <a href="/alcohol/{{_id}}">See details</a> 
     <a href="/alcohol/{{_id}}/edit" id="detail-edit-gap">Edit</a> 
+    {{!-- <a href="/alcohol/{{_id}}/delete" id="btnDelete" method="POST">Delete</a> --}}
 
     {{!-- add the form to handle the POST request to remove a specific drink  --}}
-    <form action="/alcohol/{{_id}}/delete" method="POST">
+  <form action="/alcohol/{{_id}}/delete" method="POST" id="annoying-form"> 
       <button id="delete">Delete</button>
     </form>
-    
   </div>
 {{/each}}
 

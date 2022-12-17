@@ -2,6 +2,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: bisque;
 }
 
 a {
@@ -115,9 +116,11 @@ ul li {
 }
 
 #delete{
-  background: red;
   max-width: 100px;
   border-radius: 5px;
+  margin-left: 50px;
+  background-color: red;
+  padding: 5px;
 }
 
 #detail-edit-gap{
@@ -137,4 +140,15 @@ ul li {
 
 #drinks{
   margin-top: 50px;
+}
+
+#annoying-form{
+  margin: 0;
+  padding: 0;
+}
+
+#drinks-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
