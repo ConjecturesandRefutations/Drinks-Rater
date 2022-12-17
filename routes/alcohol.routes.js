@@ -7,9 +7,9 @@ const User = require("../models/User.model"); // <== add this line before your r
 const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 
 // GET route to display the form
-router.get("/alcohol/create", (req, res) => res.render("alcohol/alcohol-create"));
+router.get("/alcohol/create", isLoggedIn, (req, res) => res.render("alcohol/alcohol-create"));
 
-router.post("/alcohol/create", (req, res, next) => {
+router.post("/alcohol/create", isLoggedIn, (req, res, next) => {
   console.log(req.body);
   const { name, description, rating, percentage, cost } =
     req.body;
@@ -36,7 +36,7 @@ router.get("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
 });
 
 // POST route to actually make updates on a specific alcohol
-router.post("/alcohol/:alcoholId/edit", (req, res, next) => {
+router.post("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
   const { alcoholId } = req.params;
   const { name, description, rating, percentage, cost } = req.body;
 
@@ -46,7 +46,7 @@ router.post("/alcohol/:alcoholId/edit", (req, res, next) => {
 });
 
 // POST route to delete an alcohol from the database
-router.post("/alcohol/:alcoholId/delete", (req, res, next) => {
+router.post("/alcohol/:alcoholId/delete", isLoggedIn, (req, res, next) => {
   const { alcoholId } = req.params;
 
   Alcohol.findByIdAndDelete(alcoholId)
