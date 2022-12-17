@@ -36,7 +36,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
   if (!regex.test(password)) {
     res.status(500).render("auth/signup", {
       errorMessage:
-        "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter."
+        "Password needs to have at least 6 characters and must contain at least one number, one lowercase and one uppercase letter."
     });
     return;
   }
@@ -88,7 +88,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   if (email === "" || password === "") {
     res.render("auth/login", {
-      errorMessage: "Please enter both, email and password to login."
+      errorMessage: "Please enter both email and password to login."
     });
     return;
   }

@@ -157,10 +157,14 @@ ul li {
 #footer{
   display: flex;
   flex-direction: row;
-  margin-top: 350px;
+  margin-top: 300px;
   border-bottom: none;
 }
 
 #created-by{
 margin-left: 1000px;
+}
+
+#opening-list{
+  margin-top: 50px;
 }
