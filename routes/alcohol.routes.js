@@ -56,7 +56,7 @@ router.post("/alcohol/:alcoholId/delete", (req, res, next) => {
 
 router.get('/alcohol', isLoggedIn, (req, res, next) => {
   User.findById(req.session.currentUser)
-    .populate('drinks') // 
+  .populate({ path: "drinks", options: { sort: { createdAt: -1 } } })
     .then(dbDrinks => {
       console.log("Drinks from the DB: ", dbDrinks.drinks);
       res.render('alcohol/alcohol-list', { drinks: dbDrinks.drinks });
