@@ -154,7 +154,13 @@ ul li {
   justify-content: flex-start;
 }
 
+#footer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 350px;
+  border-bottom: none;
+}
 
-#welcome{
-  margin-top: 50px;
+#created-by{
+margin-left: 1000px;
 }
