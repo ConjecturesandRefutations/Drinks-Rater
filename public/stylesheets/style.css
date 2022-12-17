@@ -116,8 +116,25 @@ ul li {
 
 #delete{
   background: red;
+  max-width: 100px;
+  border-radius: 5px;
 }
 
 #detail-edit-gap{
   margin-left: 50px;
+}
+
+#another{
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+#another-button{
+  color: white;
+}
+
+#drinks{
+  margin-top: 50px;
 }

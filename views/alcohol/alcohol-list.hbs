@@ -7,10 +7,13 @@
                </form>
             </li>
 
+            <button id="another"><a href="/alcohol/create" id="another-button">Add Another</a> </button>
+
 {{#each drinks}}
   <div>
-    <h3>{{name}}</h3>
+    <h3 id='drinks'>{{name}}</h3>
     <p>{{rating}}/10</p> 
+   
     <a href="/alcohol/{{_id}}">See details</a> 
     <a href="/alcohol/{{_id}}/edit" id="detail-edit-gap">Edit</a> 
 
@@ -18,5 +21,7 @@
     <form action="/alcohol/{{_id}}/delete" method="POST">
       <button id="delete">Delete</button>
     </form>
+    
   </div>
 {{/each}}
+
