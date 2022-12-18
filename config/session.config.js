@@ -16,6 +16,10 @@ module.exports = (app) => {
   // but will become a real "app" in the app.js
   // when this file gets imported/required there
 
+const password = encodeURIComponent(process.env.MONGODB_PASSWORD) 
+const MONGO_URI = `mongodb+srv://Conjectures:${password}@cluster0.n9h6bsz.mongodb.net/alcohol-rater-2?retryWrites=true&w=majority`;
+
+
   // use session
   app.use(
     session({
@@ -27,7 +31,7 @@ module.exports = (app) => {
         maxAge: 3600000 // 
       }, // ADDED code below !!!
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/alcohol-rater-2",
+        mongoUrl: MONGO_URI,
         ttl: 2 * 24 * 60 * 60,
       })
     })
