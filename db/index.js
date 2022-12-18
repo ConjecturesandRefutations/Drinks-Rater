@@ -13,7 +13,8 @@ const MONGO_URI = `mongodb+srv://Conjectures:${password}@cluster0.n9h6bsz.mongod
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+     useFindAndModify: false 
 })
   .then((x) => {
     const databaseName = x.connections[0].name;
