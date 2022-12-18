@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const password = encodeURIComponent(process.env.MONGODB_PASSWORD)
 
 const MONGO_URI = `mongodb+srv://Conjectures:${password}@cluster0.n9h6bsz.mongodb.net/alcohol-rater-2?retryWrites=true&w=majority` ||
-  "mongodb://0.0.0.0:27017/alcohol-rater-2";
+  "mongodb://127.0.0.1:27017/alcohol-rater-2";
 
   mongoose.set('strictQuery', true);
 
