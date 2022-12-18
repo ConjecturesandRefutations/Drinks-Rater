@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 const alcoholSchema = new Schema(
   {
     userId: { type: Schema.Types.ObjectId, ref: "User" },

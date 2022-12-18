@@ -48,12 +48,15 @@ router.post("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
 // POST route to delete an alcohol from the database
 router.post("/alcohol/:alcoholId/delete", isLoggedIn, (req, res, next) => {
   const { alcoholId } = req.params;
+  console.log(alcoholId)
 
   Alcohol.findByIdAndDelete(alcoholId)
+
     .then(() => res.redirect("/alcohol"))
     .catch((error) => next(error));
 });
 
+//Get route for retreiving alcohol list
 router.get('/alcohol', isLoggedIn, (req, res, next) => {
   User.findById(req.session.currentUser)
   .populate({ path: "drinks", options: { sort: { createdAt: -1 } } })
