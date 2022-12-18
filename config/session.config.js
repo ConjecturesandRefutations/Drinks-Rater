@@ -27,7 +27,7 @@ module.exports = (app) => {
         maxAge: 3600000 // 
       }, // ADDED code below !!!
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/basic-auth",
+        mongoUrl: process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/alcohol-rater-2",
         ttl: 2 * 24 * 60 * 60,
       })
     })
