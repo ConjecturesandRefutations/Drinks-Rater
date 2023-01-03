@@ -1,5 +1,5 @@
 <h1>Drinks</h1>
-
+ <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
 <li class="to-right">
                <a href="/user-profile">Back to Profile</a> <span> | </span>
                <form id="logout-form" action="/logout" method="POST">
@@ -9,6 +9,8 @@
 
             <button id="another"><a href="/alcohol/create" id="another-button">Add Another</a> </button>
             <ul></ul>
+
+           
 
 {{#each drinks}}
     <h3 id='drinks'>{{name}}</h3>
