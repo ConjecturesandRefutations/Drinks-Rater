@@ -100,11 +100,33 @@ a:hover {
   #form{
     max-width: 250px;
   }
+  .logo{
+    top: 5px;
+    font-size: 40px;
+  }
+  .logout-button{
+    top: 7px;
+    padding: 5px 10px;
+  }
+  .tagline{
+    bottom: 5px;
+  }
 }
 
 @media(max-width: 350px){
   #form{
     max-width: 200px;
+  }
+  .logo{
+    top: 2px;
+    font-size: 35px;
+  }
+  .logout-button{
+    top: 5px;
+    padding: 5px 10px;
+  }
+  .tagline{
+    bottom: 2px;
   }
 }
 
@@ -151,7 +173,6 @@ li {
 }
 
 .tagline{
-  position: fixed;
   left: 5%;
   bottom: 5%;
 }
