@@ -1,3 +1,5 @@
+<div class="edit-container">
+
 <h2>Edit the drink: {{alcohol.name}}</h2>
 
 <form action="/alcohol/{{alcohol._id}}/edit" method="post">
@@ -17,5 +19,7 @@
     <input type="number|numberDecimal" name="percentage" value="{{alcohol.percentage}}"/>
   </label>
 
-  <button>Save changes</button>
+  <button type="submit">Save changes</button>
 </form>
+
+</div>

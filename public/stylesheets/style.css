@@ -53,8 +53,8 @@ button[type="submit"] {
 }
 
 .logout-button {
-  position: absolute;
-  top: 5%;
+  position: fixed;
+  top: 10%;
   right: 5%;
   padding: 10px 20px;
   background-color: #007bff;
@@ -90,9 +90,10 @@ a:hover {
 }
 
 .logo{
-  position: absolute;
+  position: fixed;
   left: 5%;
   top: 5%;
+  font-size: 50px;
 }
 
 @media(max-width: 400px){
@@ -150,7 +151,7 @@ li {
 }
 
 .tagline{
-  position: absolute;
+  position: fixed;
   left: 5%;
   bottom: 5%;
 }
@@ -266,7 +267,7 @@ h3{
 
 /**/
 
-.add-container {
+.add-container,.edit-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
