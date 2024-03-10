@@ -182,7 +182,8 @@ li {
 
 .drinks-container {
   max-width: 600px;
-  margin: 50px auto;
+  margin: auto;
+  margin-bottom: 30px;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -219,6 +220,7 @@ h3{
   display: block;
   margin: 0 auto;
   max-width: 100px;
+  margin-bottom: 50px;
 }
 
 .add-another-button button a {
@@ -238,6 +240,8 @@ h3{
 
 .drinks {
   color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
 .drinks p {

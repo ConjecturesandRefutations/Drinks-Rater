@@ -4,7 +4,6 @@
     <button class="logout-button">Logout</button>
 </form>
 
-<div class="drinks-container">
 
   <h2>Drinks</h2>
   <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
@@ -12,13 +11,14 @@
     <a class="add-another-button" href="/alcohol/create">Add Another</a>
 
   {{#each drinks}}
-  <hr>
+  <div class="drinks-container">
+
     <h3 class="drinks">{{name}}</h3>
     <p>Rating: {{rating}}/10</p>
     <p>Alcohol %: {{percentage}}</p>
-    <div class="drinks-list">
-      <a href="/alcohol/{{_id}}">See details</a>
+    <p><a href="/alcohol/{{_id}}">See all details</a></p>
 
+    <div class="drinks-list">
       <div class="edit-delete">
         
         <a href="/alcohol/{{_id}}/edit" id="edit">Edit</a>
@@ -27,11 +27,10 @@
       </form>
 
       </div>
-      <hr>
     </div>
+    </div>  
   {{/each}}
 
 
   <a href="/user-profile">Back</a>
 
-</div>  
