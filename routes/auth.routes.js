@@ -125,14 +125,23 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((error) => next(error));
 });
 
-//                         .: ADDED :.
 router.get("/user-profile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.currentUser });
 });
 
-//                     .: ADDED :.
 router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });
 module.exports = router;
+
+router.get("/all-users", isLoggedIn, (req, res, next) => {
+  User.find()
+    .then(users => {
+      res.render("users/all-users", { 
+        userInSession: req.session.currentUser,
+        users: users 
+      });
+    })
+    .catch(error => next(error));
+});

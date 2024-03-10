@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const Alcohol = require("../models/Alcohol.model"); // <== add this line before your routes
-const User = require("../models/User.model"); // <== add this line before your routes
+const Alcohol = require("../models/Alcohol.model");
+const User = require("../models/User.model"); 
 
 // require (import) middleware functions
 const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
@@ -30,7 +30,7 @@ router.get("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
   Alcohol.findById(alcoholId)
     .then((alcoholToEdit) => {
       // console.log(alcoholToEdit);
-      res.render("alcohol/alcohol-edit.hbs", { alcohol: alcoholToEdit }); // <-- add this line
+      res.render("alcohol/alcohol-edit.hbs", { alcohol: alcoholToEdit });
     })
     .catch((error) => next(error));
 });

@@ -1,15 +1,9 @@
 <div class="drinks-container">
 
-  <form action="/user-profile" class="back">
-  <button>Back</button>
-  </form>
-
   <h2>Drinks</h2>
   <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
 
-  <div class="add-another-button">
-    <button><a href="/alcohol/create">Add Another</a></button>
-  </div>
+    <a class="add-another-button" href="/alcohol/create">Add Another</a>
 
   {{#each drinks}}
   <hr>
@@ -30,4 +24,8 @@
       <hr>
     </div>
   {{/each}}
+
+
+  <a href="/user-profile">Back</a>
+
 </div>  
