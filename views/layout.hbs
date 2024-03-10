@@ -7,19 +7,21 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}🍺</title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
    </head>
 
    <body>
-      <!-- add the navbar code below -->
-      <nav>
 
-            <p id="to-left">
-               <p><a href="/"> Drinks-Rater 🍺 </a></p>
-            </p>
+               <p class="logo"><a href="/"> Drinks-Rater 🍺 </a></p>
 
-      </nav>
+
+      <form id="logout-form" action="/logout" method="POST">
+            <button class="logout-button">Logout</button>
+      </form>
 
       {{{body}}}
+
+          <p class="tagline">The Official Drinking App</p>
 
       <script src="/js/script.js"></script>
    </body>

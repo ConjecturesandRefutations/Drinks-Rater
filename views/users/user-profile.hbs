@@ -1,26 +1,13 @@
-{{#if userInSession}}
-  <h2 id="welcome">Welcome, {{ userInSession.username }}!</h2>
+<div class="container">
+  {{#if userInSession}}
+    <h4 id="welcome">Welcome, {{ userInSession.username }}!</h4>
 
-            <li class="to-right">
-               
-               <form id="logout-form" action="/logout" method="POST">
-                  <button>Logout</button>
-               </form>
+    <ul>
+      <li><a href="/alcohol/create">Add Drink</a></li>
+      <li><a href="/alcohol">Drinks List</a></li>
+    </ul>
 
-            </li>
-  
-     <nav id="opening-list">
-         <ul>
-            <li><a href="/alcohol/create">Add Drink</a></li>
-            <br>
-            <li><a href="/alcohol">Drinks List</a></li>
-         </ul>
-      </nav>
-
-<ul id="footer">
-    <li id="tagline">The Official Drinking App</li> <li id="created-by"> By Alfie Collins</li>
-</ul>
-
-{{else}}
-  <p>Still no logged in user, sorry!</p>
-{{/if}}
+  {{else}}
+    <p>Still no logged in user, sorry!</p>
+  {{/if}}
+</div>

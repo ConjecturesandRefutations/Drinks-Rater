@@ -1,29 +1,33 @@
-<h1>Drinks</h1>
- <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
-<li class="to-right">
-               <a href="/user-profile">Back to Profile</a> <span> | </span>
-               <form id="logout-form" action="/logout" method="POST">
-                  <button>Logout</button> <span> | </span>
-               </form>
-            </li>
+<div class="drinks-container">
 
-            <button id="another"><a href="/alcohol/create" id="another-button">Add Another</a> </button>
-            <ul></ul>
+  <form action="/user-profile" class="back">
+  <button>Back</button>
+  </form>
 
-           
+  <h2>Drinks</h2>
+  <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
 
-{{#each drinks}}
-    <h3 id='drinks'>{{name}}</h3>
-    <p>{{rating}}/10</p> 
-   <div id="drinks-list">
-    <a href="/alcohol/{{_id}}">See details</a> 
-    <a href="/alcohol/{{_id}}/edit" id="detail-edit-gap">Edit</a> 
-    {{!-- <a href="/alcohol/{{_id}}/delete" id="btnDelete" method="POST">Delete</a> --}}
-
-    {{!-- add the form to handle the POST request to remove a specific drink  --}}
-  <form action="/alcohol/{{_id}}/delete" method="POST" id="annoying-form"> 
-      <button id="delete">Delete</button>
-    </form>
+  <div class="add-another-button">
+    <button><a href="/alcohol/create">Add Another</a></button>
   </div>
-{{/each}}
 
+  {{#each drinks}}
+  <hr>
+    <h3 class="drinks">{{name}}</h3>
+    <p>Rating: {{rating}}/10</p>
+    <p>Alcohol %: {{percentage}}</p>
+    <div class="drinks-list">
+      <a href="/alcohol/{{_id}}">See details</a>
+
+      <div class="edit-delete">
+        
+        <a href="/alcohol/{{_id}}/edit" id="edit">Edit</a>
+      <form action="/alcohol/{{_id}}/delete" method="POST" id="annoying-form">
+        <button id="delete">Delete</button>
+      </form>
+
+      </div>
+      <hr>
+    </div>
+  {{/each}}
+</div>  
