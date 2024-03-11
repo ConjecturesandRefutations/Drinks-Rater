@@ -97,7 +97,7 @@ a:hover {
 }
 
 @media(max-width: 400px){
-  #form{
+  #form,.drinks-container{
     max-width: 250px;
   }
   .logo{
@@ -115,7 +115,7 @@ a:hover {
 }
 
 @media(max-width: 350px){
-  #form{
+  #form,.drinks-container{
     max-width: 200px;
   }
   .logo{
@@ -181,7 +181,7 @@ li {
 /* Drinks List Page */
 
 .drinks-container {
-  max-width: 600px;
+  width: 400px;
   margin: auto;
   margin-bottom: 30px;
   padding: 20px;
