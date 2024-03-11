@@ -12,11 +12,11 @@
   </label>
 
   <label> Rating (/10):
-     <input type="number|numberDecimal" name="rating" min="1" max="10" value="{{alcohol.rating}}" />
+     <input type="number" name="rating" min="1" max="10" step="0.1" value="{{alcohol.rating}}"/>
   </label>
 
   <label> Alcohol Percentage:
-    <input type="number|numberDecimal" name="percentage" value="{{alcohol.percentage}}"/>
+    <input type="number" name="percentage" min="0" max="100" step="0.1" value="{{alcohol.percentage}}"/>
   </label>
 
   <button type="submit">Save changes</button>
