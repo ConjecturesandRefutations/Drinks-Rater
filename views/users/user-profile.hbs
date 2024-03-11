@@ -1,10 +1,4 @@
-<p class="logo"><a href="/"> 🍺 </a></p>
-
-<form id="logout-form" action="/logout" method="POST">
-    <button class="logout-button">Logout</button>
-</form>
-
-<div class="container">
+<div class="user-container">
   {{#if userInSession}}
     <h4 id="welcome">Welcome, {{ userInSession.username }}!</h4>
 

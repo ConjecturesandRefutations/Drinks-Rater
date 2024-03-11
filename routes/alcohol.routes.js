@@ -7,7 +7,7 @@ const User = require("../models/User.model");
 const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 
 // GET route to display the form
-router.get("/alcohol/create", isLoggedIn, (req, res) => res.render("alcohol/alcohol-create"));
+router.get("/alcohol/create", isLoggedIn, (req, res) => res.render("alcohol/alcohol-create", {userInSession: req.session.currentUser}));
 
 router.post("/alcohol/create", isLoggedIn, (req, res, next) => {
   console.log(req.body);
@@ -30,7 +30,7 @@ router.get("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
   Alcohol.findById(alcoholId)
     .then((alcoholToEdit) => {
       // console.log(alcoholToEdit);
-      res.render("alcohol/alcohol-edit.hbs", { alcohol: alcoholToEdit });
+      res.render("alcohol/alcohol-edit.hbs", { alcohol: alcoholToEdit, userInSession: req.session.currentUser });
     })
     .catch((error) => next(error));
 });
@@ -62,7 +62,7 @@ router.get('/alcohol', isLoggedIn, (req, res, next) => {
   .populate({ path: "drinks", options: { sort: { createdAt: -1 } } })
     .then(dbDrinks => {
       console.log("Drinks from the DB: ", dbDrinks.drinks);
-      res.render('alcohol/alcohol-list', { drinks: dbDrinks.drinks });
+      res.render('alcohol/alcohol-list', { drinks: dbDrinks.drinks, userInSession: req.session.currentUser });
     })
     .catch(err => {
       console.log(`Err while getting the posts from the DB: ${err}`);
@@ -75,7 +75,7 @@ router.get("/alcohol/:alcoholId", (req, res, next) => {
   const { alcoholId } = req.params;
 
   Alcohol.findById(alcoholId)
-    .then((theAlcohol) => res.render("alcohol/alcohol-details.hbs", { alcohol: theAlcohol }))
+    .then((theAlcohol) => res.render("alcohol/alcohol-details.hbs", { alcohol: theAlcohol, userInSession: req.session.currentUser }))
     .catch((error) => {
       console.log("Error while retrieving alcohol details: ", error);
 

@@ -1,11 +1,4 @@
-<p class="logo"><a href="/"> 🍺 </a></p>
-
-<form id="logout-form" action="/logout" method="POST">
-    <button class="logout-button">Logout</button>
-</form>
-
-
-  <h2>Drinks</h2>
+<h2>Drinks</h2>
   <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
 
     <a class="add-another-button" href="/alcohol/create">Add Another</a>
@@ -16,7 +9,7 @@
     <h3 class="drinks">{{name}}</h3>
     <p><span style="font-weight: bold;">Rating:</span> {{rating}}/10</p>
     <p><span style="font-weight: bold;">Alcohol Percentage:</span> {{percentage}}</p>
-    <p><a href="/alcohol/{{_id}}">See all details</a></p>
+    <p><a href="/alcohol/{{_id}}">See all details...</a></p>
 
     <div class="drinks-list">
       <div class="edit-delete">
@@ -31,6 +24,5 @@
     </div>  
   {{/each}}
 
-
-  <a href="/user-profile">Back</a>
+  <a class="back" href="/user-profile">Back</a>
 

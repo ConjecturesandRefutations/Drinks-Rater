@@ -12,6 +12,16 @@
 
    <body>
 
+{{#if userInSession}}
+
+         <p class="logo"><a href="/"> 🍺 </a></p>
+
+         <form id="logout-form" action="/logout" method="POST">
+            <button class="logout-button">Logout</button>
+         </form>
+
+{{/if}}
+
       {{{body}}}
 
           <p class="tagline"><span style="font-weight: bold;">Drinks Rater</span> | The Official Drinking App</p>

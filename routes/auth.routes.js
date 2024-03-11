@@ -15,7 +15,7 @@ const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 // GET route ==> to display the signup form to users
 //                     .: ADDED :.
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup", { isLoggedIn: req.session.currentUser ? true : false });
+  res.render("auth/signup");
 });
 
 // POST route ==> to process form data
