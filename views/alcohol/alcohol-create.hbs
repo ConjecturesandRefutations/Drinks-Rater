@@ -1,32 +1,35 @@
-<div class="add-container">
+<p class="to-right">
+  <form action="/user-profile" id="back">
+  <button>Back</button>
+  </form>
+</p>
 
-<h2>Add a Drink</h2>
+<div class='addDrink'>
 
-<form action="/alcohol/create" method="post">
+<h2 class="text-xl font-bold">Add a Drink</h2>
+
+<form action="/alcohol/create" method="post" class="mt-10">
 
   <label> Name:
-    <input type="text" name="name" />
+    <input type="text" name="name" class="block text-sm font-medium text-gray-700"/>
   </label>
 
   <label> Description:
     <br>
-    <textarea name="description" cols="30" rows="4"> </textarea>
+    <textarea name="description" cols="30" rows="4" class="block text-sm font-medium text-gray-700" id="addDescription"> </textarea>
     
   </label>
 
   <label> Rating (out of 10):
-           <input type="number" name="rating" min="1" max="10" step="0.1" />
+     <input type="number|numberDecimal" name="rating" min="1" max="10" class="block text-sm font-medium text-gray-700"/>
   </label>
 
    <label> Alcohol Percentage:
-    <input type="number" name="percentage"  min="0" max="100" step="0.1" placeholder="4.5"/>
+    <input type="number|numberDecimal" name="percentage"  min="0" max="100" placeholder="4.5" class="block text-sm font-medium text-gray-700"/>
   </label>
 
-  <button type="submit"> Add </button>
+  <button type="submit" class="text-blue-500 font-semibold underline mt-2"> Add </button>
 
 </form>
 
-  <br/>
-  <a href="/user-profile" class="back">Back</a>
-  
 </div>

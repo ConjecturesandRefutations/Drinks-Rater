@@ -11,17 +11,18 @@ router.get("/alcohol/create", isLoggedIn, (req, res) => res.render("alcohol/alco
 
 router.post("/alcohol/create", isLoggedIn, (req, res, next) => {
   console.log(req.body);
-  const { name, description, rating, percentage, cost } =
-    req.body;
+  const { name, description, rating, percentage, cost } = req.body;
 
   Alcohol.create({ name, description, rating, percentage, cost })
     .then((newAlcohol) => {
       console.log("Post Created");
-      return User.findByIdAndUpdate(req.session.currentUser, { $push: { drinks: newAlcohol._id } });
+      return User.findByIdAndUpdate(req.session.currentUser._id, { $push: { drinks: newAlcohol._id } });
     })
-    .then(() => res.redirect("/alcohol"))
+    .then(() => res.redirect("/lists/my-drinks"))
     .catch((error) => next(error));
-}); 
+});
+
+
 
 // GET route to display the form to update a specific alcohol
 router.get("/alcohol/:alcoholId/edit", isLoggedIn, (req, res, next) => {
@@ -52,17 +53,17 @@ router.post("/alcohol/:alcoholId/delete", isLoggedIn, (req, res, next) => {
 
   Alcohol.findByIdAndDelete(alcoholId)
 
-    .then(() => res.redirect("/alcohol"))
+    .then(() => res.redirect("/lists/my-drinks"))
     .catch((error) => next(error));
 });
 
 //Get route for retreiving alcohol list
-router.get('/alcohol', isLoggedIn, (req, res, next) => {
+router.get('/lists/my-drinks', isLoggedIn, (req, res, next) => {
   User.findById(req.session.currentUser)
   .populate({ path: "drinks", options: { sort: { createdAt: -1 } } })
     .then(dbDrinks => {
       console.log("Drinks from the DB: ", dbDrinks.drinks);
-      res.render('alcohol/alcohol-list', { drinks: dbDrinks.drinks, userInSession: req.session.currentUser });
+      res.render('lists/my-drinks', { drinks: dbDrinks.drinks, userInSession: req.session.currentUser });
     })
     .catch(err => {
       console.log(`Err while getting the posts from the DB: ${err}`);
@@ -83,5 +84,18 @@ router.get("/alcohol/:alcoholId", (req, res, next) => {
       next(error);
     });
 });
+
+// GET route to retrieve and display drinks of every user
+router.get("/lists/all-drinks", isLoggedIn, (req, res, next) => {
+  Alcohol.find({})
+    .populate('user') // Populate the 'user' field within each drink
+    .sort({ createdAt: -1 })
+    .then((allDrinks) => {
+      console.log('allDrinks:', allDrinks);
+      res.render("lists/all-drinks", { drinks: allDrinks, userInSession: req.session.currentUser });
+    })
+    .catch((error) => next(error));
+});
+
 
 module.exports = router;

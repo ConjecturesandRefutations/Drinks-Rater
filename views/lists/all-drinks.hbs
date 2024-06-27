@@ -1,0 +1,17 @@
+<h2>Drinks Logged by All Users</h2>
+  <p id="drinkscount">Total Drinks Logged: {{drinks.length}}</p>
+
+    <ul>
+        {{#each drinks}}
+          <div class="drinks-container">
+
+        <li>
+            <h3 class="drinks">{{name}}</h3>
+            <p><span style="font-weight: bold;">Rating:</span> {{rating}}/10</p>
+            <p><span style="font-weight: bold;">Alcohol Percentage:</span> {{percentage}}</p>
+            <p><span style="font-weight: bold;">Creator:</span> {{this.userId.username}}</p>
+            <p><a href="/alcohol/{{_id}}">See all details...</a></p>
+        </li>
+          </div>
+        {{/each}}
+    </ul>

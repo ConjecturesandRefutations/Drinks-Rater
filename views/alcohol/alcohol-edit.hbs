@@ -1,28 +1,25 @@
-<div class="edit-container">
+<div class="editDrink">
 
-<h2>Edit the drink: {{alcohol.name}}</h2>
+<h2 class="text-xl">Edit the drink: <span style="font-weight: bold;">{{alcohol.name}}</span></h2>
 
-<form action="/alcohol/{{alcohol._id}}/edit" method="post">
+<form action="/alcohol/{{alcohol._id}}/edit" method="post" class='loginLogout mt-10'>
   <label> Name:
-    <input type="text" name="name" value="{{alcohol.name}}" />
+    <input type="text" name="name" value="{{alcohol.name}}" class="block text-sm font-medium text-gray-700" />
   </label>
 
-  <label> Description:
-     <textarea name="description" cols="30" rows="4">{{alcohol.description}}</textarea>
+  <label> Description: </label>
+     <textarea name="description" cols="30" rows="4" class="block text-sm font-medium text-gray-700" id="editDescription">{{alcohol.description}}</textarea>
+  
+
+  <label> Rating:
+     <input type="number|numberDecimal" name="rating" min="1" max="10" value="{{alcohol.rating}}" class="block text-sm font-medium text-gray-700" />/10
   </label>
 
-  <label> Rating (/10):
-     <input type="number" name="rating" min="1" max="10" step="0.1" value="{{alcohol.rating}}"/>
+  <label> Percentage:
+    <input type="number|numberDecimal" name="percentage" value="{{alcohol.percentage}}" class="block text-sm font-medium text-gray-700" />
   </label>
 
-  <label> Alcohol Percentage:
-    <input type="number" name="percentage" min="0" max="100" step="0.1" value="{{alcohol.percentage}}"/>
-  </label>
-
-  <button type="submit">Save changes</button>
+  <button class="text-blue-500 font-semibold underline mt-2">Save changes</button>
 </form>
-
-<br>
-<a href="/user-profile" class="back">Back</a>
 
 </div>
