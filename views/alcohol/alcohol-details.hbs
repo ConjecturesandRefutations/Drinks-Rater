@@ -1,11 +1,12 @@
 <h2 class="mt-5 text-2xl font-bold">{{alcohol.name}}</h2>
 
-<hr class="mt-5">
 
+<div class="details-box">
 <p><span class="detailsList">Description:</span> {{alcohol.description}}</p>
 <p><span class="detailsList">Rating:</span> {{alcohol.rating}}/10</p>
 <p><span class="detailsList">Percentage:</span> {{alcohol.percentage}}%</p>
+</div>
 
 <hr class="mt-5">
 
-<a href="/lists/all-drinks">Back</a>
+<a href="javascript:void(0);" onclick="history.back();">Back</a>
