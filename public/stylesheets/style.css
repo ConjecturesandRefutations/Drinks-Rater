@@ -367,3 +367,65 @@ h3{
 .detailsList{
   font-weight: bold;
 }
+
+.editDrink {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.editDrink h2.text-xl {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.editDrink h2.text-xl span {
+  font-weight: bold;
+}
+
+.editDrink .loginLogout {
+  margin-top: 40px;
+}
+
+.editDrink label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.editDrink label input,
+.editDrink label textarea {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+}
+
+.editDrink label textarea {
+  resize: vertical;
+}
+
+.editDrink button {
+  color: #fff;
+  background-color: #1e90ff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.editDrink button:hover {
+  background-color: #1c86ee;
+}
