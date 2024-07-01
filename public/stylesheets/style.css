@@ -408,10 +408,12 @@ h3{
   margin-top: 5px;
   font-size: 1em;
   font-family: Arial, sans-serif;
+  margin: auto;
 }
 
-.editDrink label textarea {
-  resize: vertical;
+.editDrink textarea{
+  margin: auto !important;
+  width: 80%;
 }
 
 .editDrink button {
