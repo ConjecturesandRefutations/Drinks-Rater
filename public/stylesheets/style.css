@@ -3,6 +3,10 @@ body {
   background-color: #F0F2F5;
 }
 
+.addDrink{
+    margin-top: 20vh;
+}
+
 /* Login and Signup Pages */
 
 #form {
